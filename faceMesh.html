@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.css" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="demo.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.1/face_mesh.js" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body, h1, p, a {
+      font-family: 'Roboto Mono', monospace !important;
+      color: #000;
+      line-height: 2.3;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0px;
+      background-color: #ffffff;
+      overflow: hidden;
+      padding-top: 50px; /* added some space at the top of the navigation bar */
+    }
+
+    .navbar {
+      margin-bottom: 20px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      padding: 60px;
+      background-color: #ffffff;
+    }
+
+    .navbar .navbar-start .navbar-item {
+      font-size: 1.25em;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+      border: 2px solid #000;
+      border-radius: 5px;
+      color: #000;
+      background-color: #ffffff;
+    }
+
+    .navbar .navbar-start .navbar-item:hover,
+    .navbar .navbar-start .navbar-item:focus {
+      color: #fff !important;
+      background-color: #000 !important;
+      transform: scale(1.08);
+    }
+
+    .container {
+      display: grid;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      margin-top: 20px;
+    }
+
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .column {
+      margin: 5px;
+    }
+
+    .panel-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .control2 {
+      visibility: hidden;
+    }
+
+    .panel.is-info .panel-heading {
+      background-color: #000; /* changed to black */
+      color: #fff; /* changed the text color to white */
+      text-align: center; /* centered the heading */
+    }
+
+    .input_video2, .output2 {
+      width: 600px; /* updated width to 600px */
+      height: 600px; /* updated height to 600px */
+    }
+
+  </style>
+
+</head>
+
+<body>
+<!-- BULMA NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start" style="margin:auto;">
+      <a class="navbar-item" href="index.html">
+        Home
+      </a>
+
+      <a class="navbar-item" href="faceMesh.html">
+        Face Mesh
+      </a>
+
+      <a class="navbar-item" href="hands.html">
+        Hands
+      </a>
+
+      <a class="navbar-item" href="pose.html">
+        Pose
+      </a>
+
+
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENTS -->
+<div class="container">
+  <div class="columns">
+    <!-- WEBCAM INPUT -->
+    <div class="column">
+      <article class="panel is-info">
+        <p class="panel-heading">
+          Webcam Input
+        </p>
+        <div class="panel-block">
+          <video class="input_video2"></video>
+        </div>
+      </article>
+    </div>
+
+    <!-- MEDIAPIPE OUTPUT -->
+    <div class="column">
+      <article class="panel is-info">
+        <p class="panel-heading">
+          Facemesh
+        </p>
+        <div class="panel-block">
+          <canvas class="output2" width="600px" height="600px"></canvas> <!-- Resized the canvas -->
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="loading">
+    <div class="spinner"></div>
+  </div>
+  <div style="visibility: hidden;" class="control2"></div>
+
+  <script type="text/javascript" src="./js/faceMesh.js"></script>
+</div>
+</body>
+</html>

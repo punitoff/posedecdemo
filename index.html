@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body, h1, p, a {
+      font-family: 'Roboto Mono', monospace !important;
+      color: #000;
+      line-height: 2.3;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+    .navbar {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    .navbar .navbar-start .navbar-item {
+      font-size: 1.25em;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+      border: 2px solid #000;  /* add a border */
+      border-radius: 5px; /* make it rounded */
+      color: #000;
+      background-color: #ffffff;
+    }
+    .navbar .navbar-start .navbar-item:hover,
+    .navbar .navbar-start .navbar-item:focus {
+      color: #fff !important;
+      background-color: #000 !important;
+      transform: scale(1.08);
+    }
+    .intro-text {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      width: 80%;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+
+<body>
+
+<!-- INTRODUCTION TEXT -->
+<div class="intro-text">
+  <p>Welcome to my Real-time Webcam Motion Capture demoapp!</p>
+  <p>Track landmarks of hands and face using the Holistic model from Mediapipe.</p>
+  <p>This is a demo of how AI and computer vision can be used for your possible project.</p>
+  <p>Move your hand or nod your head, and it'll draw a box around that for 2 seconds.</p>
+  <p>Click below to start your experience.</p>
+</div>
+
+<!-- BULMA NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start" style="margin:auto;">
+
+      <a class="navbar-item" href="faceMesh.html">
+        Face Mesh
+      </a>
+
+      <a class="navbar-item" href="hands.html">
+        Hands
+      </a>
+
+      <a class="navbar-item" href="pose.html">
+        Pose
+      </a>
+
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>
